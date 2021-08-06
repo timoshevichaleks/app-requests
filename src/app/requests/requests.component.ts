@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Item } from '../item';
 
 @Component({
   selector: 'app-requests',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestsComponent implements OnInit {
 
-  constructor() { }
+  items!: Item[];
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    // this.getData();
+  }
+
+  getData() {
+    this.http.get<Item[]>('/items').subscribe(
+      result => this.items = result,
+      error => console.log(error.statusText)
+      )
   }
 
 }

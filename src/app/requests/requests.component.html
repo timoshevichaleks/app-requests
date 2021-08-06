@@ -1,1 +1,5 @@
-<p>requests works!</p>
+<ul>
+  <li *ngFor="let item of items">{{item.id}} &nbsp; | &nbsp; {{item.name}}</li>
+</ul>
+
+<button (click)="getData()">Get Data</button>
