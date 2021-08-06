@@ -2,4 +2,15 @@
   <li *ngFor="let item of items">{{item.id}} &nbsp; | &nbsp; {{item.name}}</li>
 </ul>
 
-<button (click)="getData()">Get Data</button>
+<div>
+  <label for="itemId">ID: </label>
+  <input type="text" id="itemId" placeholder="Enter ID" [(ngModel)]="item.id">
+</div>
+
+<div>
+  <label for="itemName">NAME: </label>
+  <input type="text" id="itemName" placeholder="Enter NAME" [(ngModel)]="item.name">
+</div>
+
+<button (click)="postData()">Send Data to Server</button>
+<button (click)="clearAndGet()">Clear and Get Data</button>
